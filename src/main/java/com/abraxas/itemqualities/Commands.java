@@ -14,6 +14,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.Damageable;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.abraxas.itemqualities.QualitiesManager.*;
@@ -28,7 +30,7 @@ import static com.abraxas.itemqualities.utils.Utils.*;
 import static org.bukkit.Material.AIR;
 import static org.bukkit.persistence.PersistentDataType.INTEGER;
 
-public class Commands implements CommandExecutor, TabCompleter {
+public class Commands implements CommandExecutor/*, TabCompleter*/ {
 
     private final ItemQualities main;
 
@@ -51,6 +53,18 @@ public class Commands implements CommandExecutor, TabCompleter {
     private void sendHelp(CommandSender sender) {
         sender.sendMessage("Available commands: reload, resetconfig, repairitem, setitemquality, removeitemquality, managequalities.");
     }
+
+    /*@Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            return List.of("reload", "resetconfig", "repairitem", "setitemquality", "removeitemquality", "managequalities");
+        } else if (args.length == 2 && args[0].equalsIgnoreCase("setitemquality")) {
+            List<String> qualities = new ArrayList<>(QualitiesManager.qualitiesRegistry.getRegistry().keySet());
+            qualities.add("random");
+            return qualities;
+        }
+        return Collections.emptyList();
+    }*/
 
     /*static ItemQualities main = ItemQualities.getInstance();
 
