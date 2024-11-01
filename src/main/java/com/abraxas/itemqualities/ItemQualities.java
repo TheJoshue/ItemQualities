@@ -52,7 +52,7 @@ public final class ItemQualities extends JavaPlugin {
         startMetrics();
         QualitiesManager.loadAndRegister();
 
-        Commands.register();
+        //Commands.register();
 
         registerEvents(new ItemListeners());
         registerEvents(new BlockListeners());
