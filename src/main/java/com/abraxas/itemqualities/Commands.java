@@ -23,7 +23,7 @@ import static org.bukkit.persistence.PersistentDataType.INTEGER;
 
 public class Commands implements CommandExecutor, TabCompleter {
 
-    private final ItemQualities main = ItemQualities.getInstance();
+    private final ItemQualities main;
 
     public Commands(ItemQualities plugin) {
         this.main = plugin;
