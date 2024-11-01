@@ -28,7 +28,7 @@ import static org.bukkit.DyeColor.LIME;
 import static org.bukkit.Material.GREEN_BANNER;
 import static org.bukkit.Material.PAPER;
 import static org.bukkit.block.banner.PatternType.*;
-import static org.bukkit.inventory.ItemFlag.HIDE_POTION_EFFECTS;
+import static org.bukkit.inventory.ItemFlag.HIDE_ADDITIONAL_TOOLTIP;
 import static org.bukkit.persistence.PersistentDataType.STRING;
 
 public class IPQualityModifiersList implements InventoryProvider {
@@ -113,7 +113,7 @@ public class IPQualityModifiersList implements InventoryProvider {
         newQualityItemMeta.addPattern(new Pattern(GREEN, BORDER));
         newQualityItemMeta.addPattern(new Pattern(GREEN, STRIPE_TOP));
         newQualityItemMeta.addPattern(new Pattern(GREEN, STRIPE_BOTTOM));
-        newQualityItemMeta.addItemFlags(HIDE_POTION_EFFECTS); // Wtf mojang
+        newQualityItemMeta.addItemFlags(HIDE_ADDITIONAL_TOOLTIP); // Wtf mojang
         newQualityItem.setItemMeta(newQualityItemMeta);
         contents.set(row, col, ClickableItem.of(newQualityItem, e -> {
             e.setCancelled(true);
