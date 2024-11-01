@@ -98,7 +98,7 @@ public class Commands implements CommandExecutor/*, TabCompleter*/ {
         }
         var itemName = new TranslatableComponent("item.minecraft.%s".formatted(item.getType().toString().toLowerCase())).toPlainText();
         repairItem(item);
-        ItemQualities.getInstance().getTranslation("message.commands.item_repaired").formatted(itemName));
+        sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.item_repaired").formatted(itemName));
     }
 
     private void handleSetItemQuality(Player player, String qualityArg) {
