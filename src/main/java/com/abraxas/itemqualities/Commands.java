@@ -21,7 +21,7 @@ import static com.abraxas.itemqualities.utils.Utils.*;
 import static org.bukkit.Material.AIR;
 import static org.bukkit.persistence.PersistentDataType.INTEGER;
 
-public class Commands {
+public class Commands implements CommandExecutor, TabCompleter {
 
     private final ItemQualities main = ItemQualities.getInstance();
 
