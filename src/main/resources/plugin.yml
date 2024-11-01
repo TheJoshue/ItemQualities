@@ -25,3 +25,7 @@ permissions:
   itemqualities.user.usereforge:
     default: not op
     description: Allows use of a reforge station.
+
+commands:
+  qualities:
+    description: Main command for Item Qualities
