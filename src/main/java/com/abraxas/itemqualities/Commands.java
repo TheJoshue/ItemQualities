@@ -25,7 +25,7 @@ import static com.abraxas.itemqualities.api.Keys.ITEM_QUALITY_REMOVED;
 import static com.abraxas.itemqualities.api.Registries.qualitiesRegistry;
 import static com.abraxas.itemqualities.inventories.Inventories.QUALITY_MANAGER_INVENTORY;
 import static com.abraxas.itemqualities.utils.Permissions.*;
-import static com.abraxas.itemqualities.utils.UpdateChecker.sendNewVersionNotif;
+//import static com.abraxas.itemqualities.utils.UpdateChecker.sendNewVersionNotif;
 import static com.abraxas.itemqualities.utils.Utils.*;
 import static org.bukkit.Material.AIR;
 import static org.bukkit.persistence.PersistentDataType.INTEGER;
@@ -47,7 +47,35 @@ public class Commands implements CommandExecutor/*, TabCompleter*/ {
             sendHelp(sender);
             return true;
         }
+
+        switch (args[0].toLowerCase()) {
+            case "reload" -> handleReload(sender);
+            case "resetconfig" -> handleResetConfig(sender);
+            case "repairitem" -> {
+                if (sender instanceof Player player) handleRepairItem(player);
+                else sender.sendMessage("This command can only be run by a player.");
+            }
+            case "setitemquality" -> {
+                if (sender instanceof Player player && args.length > 1) handleSetItemQuality(player, args[1]);
+                else sender.sendMessage("Please specify the item quality.");
+            }
+            case "removeitemquality" -> {
+                if (sender instanceof Player player) handleRemoveItemQuality(player);
+                else sender.sendMessage("This command can only be run by a player.");
+            }
+            case "managequalities" -> {
+                if (sender instanceof Player player) handleManageQualities(player);
+                else sender.sendMessage("This command can only be run by a player.");
+            }
+            default -> sendHelp(sender);
+        }
         return true;
+    }
+
+    private void handleReload(CommandSender sender) {
+        main.loadConfig();
+        QualitiesManager.loadAndRegister();
+        sender.sendMessage("Config reloaded.");
     }
 
     private void sendHelp(CommandSender sender) {
