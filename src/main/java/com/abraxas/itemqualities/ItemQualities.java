@@ -9,7 +9,7 @@ import com.google.gson.JsonParser;
 //import dev.jorel.commandapi.CommandAPI;
 //import dev.jorel.commandapi.CommandAPIConfig;
 import fr.minuskube.inv.InventoryManager;
-import org.bstats.bukkit.Metrics;
+//import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -48,7 +48,7 @@ public final class ItemQualities extends JavaPlugin {
         //CommandAPI.onEnable(instance);
 
         loadConfig();
-        startMetrics();
+        //startMetrics();
         QualitiesManager.loadAndRegister();
 
         //Commands.register();
