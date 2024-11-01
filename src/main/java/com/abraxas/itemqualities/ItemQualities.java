@@ -3,7 +3,7 @@ package com.abraxas.itemqualities;
 import com.abraxas.itemqualities.listeners.BlockListeners;
 import com.abraxas.itemqualities.listeners.ItemListeners;
 import com.abraxas.itemqualities.listeners.ServerListeners;
-import com.abraxas.itemqualities.utils.UpdateChecker;
+//import com.abraxas.itemqualities.utils.UpdateChecker;
 import com.abraxas.itemqualities.utils.Utils;
 import com.google.gson.JsonParser;
 //import dev.jorel.commandapi.CommandAPI;

@@ -12,8 +12,7 @@ public class Config {
     public String itemQualityDisplayFormat = "{QUALITY} &r{ITEM}";
     public boolean exampleItemQualitiesEnabled = true;
     public boolean displayQualityInLore = false;
-    public boolean newUpdateMessageOnReload = true;
-    public boolean newUpdateMessageOnJoin = true;
+    public boolean displayDurabilityLineIfMaxDurabilityHasOffset = false;
     public boolean applyQualityOnCraft = true;
     public boolean rerollQualityOnSmith = false;
     public boolean reforgeStationEnabled = true;

@@ -2,7 +2,7 @@ package com.abraxas.itemqualities.listeners;
 
 import com.abraxas.itemqualities.ItemQualities;
 import com.abraxas.itemqualities.api.quality.ItemQuality;
-import com.abraxas.itemqualities.utils.UpdateChecker;
+//import com.abraxas.itemqualities.utils.UpdateChecker;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.event.EventHandler;
@@ -28,8 +28,8 @@ public class ServerListeners implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        if (getConfig().newUpdateMessageOnJoin)
-            UpdateChecker.sendNewVersionNotif(event.getPlayer());
+        //if (getConfig().newUpdateMessageOnJoin)
+            //UpdateChecker.sendNewVersionNotif(event.getPlayer());
         event.getPlayer().getPersistentDataContainer().remove(PLAYER_QUALITY_EDITING_OR_PREVIEWING);
         event.getPlayer().getPersistentDataContainer().remove(PLAYER_TYPING_VALUE_KEY);
     }
