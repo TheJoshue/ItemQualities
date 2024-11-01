@@ -13,6 +13,9 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.Damageable;
 
+import com.abraxas.itemqualities.api.DurabilityManager;
+import com.abraxas.itemqualities.inventories.Inventories;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -25,7 +28,6 @@ import static com.abraxas.itemqualities.api.Keys.ITEM_QUALITY_REMOVED;
 import static com.abraxas.itemqualities.api.Registries.qualitiesRegistry;
 import static com.abraxas.itemqualities.inventories.Inventories.QUALITY_MANAGER_INVENTORY;
 import static com.abraxas.itemqualities.utils.Permissions.*;
-//import static com.abraxas.itemqualities.utils.UpdateChecker.sendNewVersionNotif;
 import static com.abraxas.itemqualities.utils.Utils.*;
 import static org.bukkit.Material.AIR;
 import static org.bukkit.persistence.PersistentDataType.INTEGER;
@@ -73,13 +75,90 @@ public class Commands implements CommandExecutor/*, TabCompleter*/ {
     }
 
     private void handleReload(CommandSender sender) {
-        main.loadConfig();
-        QualitiesManager.loadAndRegister();
-        sender.sendMessage("Config reloaded.");
+        ItemQualities.getInstance().loadConfig();
+        loadAndRegister();
+        sendMessageWithPrefix(sender, ItemQualities.getInstance().getTranslation("message.commands.reloaded"));
+    }
+
+    private void handleResetConfig(CommandSender sender) {
+        ItemQualities.getInstance().resetConfig();
+        loadAndRegister();
+        sendMessageWithPrefix(sender, ItemQualities.getInstance().getTranslation("message.commands.reloaded_default_config"));
+    }
+
+    private void handleRepairItem(Player player) {
+        var item = player.getInventory().getItemInMainHand();
+        if (item.getType() == Material.AIR) {
+            sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.must_hold_item"));
+            return;
+        }
+        if (!(item.getItemMeta() instanceof Damageable)) {
+            sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.item_cant_be_repaired"));
+            return;
+        }
+        var itemName = new TranslatableComponent("item.minecraft.%s".formatted(item.getType().toString().toLowerCase())).toPlainText();
+        repairItem(item);
+        ItemQualities.getInstance().getTranslation("message.commands.item_repaired").formatted(itemName));
+    }
+
+    private void handleSetItemQuality(Player player, String qualityArg) {
+        var item = player.getInventory().getItemInMainHand();
+        if (item.getType() == Material.AIR) {
+            sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.must_hold_item"));
+            return;
+        }
+        var qualArgString = (String) args[0];
+        var quality = getRandomQuality(getQuality(item));
+        var qualArg = qualArgString.split(":");
+        if (qualArgString != "random" && qualArg.length > 1)
+            quality = getQualityById(qualArg[1]);
+
+        var meta = item.getItemMeta();
+
+        if (!itemCanHaveQuality(item) && !meta.getPersistentDataContainer().has(ITEM_QUALITY_REMOVED, INTEGER)) {
+            sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.item_cant_have_quality"));
+            return;
+        }
+        if (meta.getPersistentDataContainer().has(ITEM_QUALITY_REMOVED, INTEGER)) {
+            meta.getPersistentDataContainer().remove(ITEM_QUALITY_REMOVED);
+            item.setItemMeta(meta);
+        }
+        refreshItem(item, quality);
+        damageItem(player, item, 0);
+        sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.items_quality_set").formatted(quality.display));
+    }
+
+    private void handleRemoveItemQuality(Player player) {
+        var item = player.getInventory().getItemInMainHand();
+        if (item.getType() == Material.AIR) {
+            sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.must_hold_item"));
+            return;
+        }
+        if (!QualitiesManager.itemHasQuality(item)) {
+            sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.item_has_no_quality"));
+            return;
+        }
+
+        var itemsQuality = getQuality(item);
+        removeQualityFromItem(item, true);
+        damageItem(player, item, 0);
+
+        sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.quality_removed").formatted(itemsQuality.display));
+    }
+
+    private void handleManageQualities(Player player) {
+        if (qualitiesRegistry.getRegistry().size() < 1) {
+            sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.plugin.no_qualities_registered"));
+            return;
+        }
+        QUALITY_MANAGER_INVENTORY.open(player, 0);
     }
 
     private void sendHelp(CommandSender sender) {
-        sender.sendMessage("Available commands: reload, resetconfig, repairitem, setitemquality, removeitemquality, managequalities.");
+        sendMessageWithoutPrefix(sender, ItemQualities.getInstance().getTranslation("message.plugin.help.info"));
+        usableCommands.forEach(sc -> {
+            sendMessageWithoutPrefix(sender, ItemQualities.getInstance().getTranslation("message.plugin.help.command.%s".formatted(sc.getName())));
+        });
     }
 
     /*@Override

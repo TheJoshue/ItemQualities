@@ -28,5 +28,9 @@ permissions:
     description: Allows use of a reforge station.
 
 commands:
-  qualities:
-    description: Main command for Item Qualities
+  itemqualities:
+    aliases:
+      - iq
+      - qualities
+    description: Main command.
+    permission: itemqualities.command

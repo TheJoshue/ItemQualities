@@ -44,7 +44,7 @@ public final class ItemQualities extends JavaPlugin {
     public void onEnable() {
         long start = System.currentTimeMillis();
         instance = this;
-        getCommand("qualities").setExecutor(new Commands(this));
+        getCommand("itemqualities").setExecutor(new Commands(this));
         //CommandAPI.onEnable(instance);
 
         loadConfig();
