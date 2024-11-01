@@ -42,18 +42,18 @@
                             <outputFile>server/1.19/plugins/${project.name}-${project.version}.jar</outputFile>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <minimizeJar>true</minimizeJar>
-                            <artifactSet>
+                            <!--artifactSet>
                                 <includes>
                                     <include>dev.jorel:commandapi-shade</include>
                                     <include>org.bstats</include>
                                     <include>fr.minuskube.inv</include>
                                 </includes>
-                            </artifactSet>
+                            </artifactSet-->
                             <relocations>
-                                <relocation>
+                                <!--relocation>
                                     <pattern>dev.jorel.commandapi-shade</pattern>
                                     <shadedPattern>com.abraxas.itemqualities.api.commandapi</shadedPattern>
-                                </relocation>
+                                </relocation-->
                                 <relocation>
                                     <pattern>fr.minuskube.inv</pattern>
                                     <shadedPattern>com.abraxas.itemqualities.api.inv</shadedPattern>
@@ -101,11 +101,11 @@
             <version>1.21.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>dev.jorel</groupId>
             <artifactId>commandapi-shade</artifactId>
             <version>8.4.0</version>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>fr.minuskube.inv</groupId>
             <artifactId>smart-invs</artifactId>
