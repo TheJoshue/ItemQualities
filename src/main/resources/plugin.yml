@@ -1,7 +1,7 @@
 name: ItemQualities
 version: '${project.version}'
 main: com.abraxas.itemqualities.ItemQualities
-api-version: 1.18
+api-version: 1.13
 prefix: ItemQualities
 load: STARTUP
 authors: [ Steel_Abraxas ]
