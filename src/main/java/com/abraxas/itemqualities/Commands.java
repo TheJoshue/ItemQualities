@@ -4,6 +4,13 @@ package com.abraxas.itemqualities;
 //import dev.jorel.commandapi.arguments.ArgumentSuggestions;
 //import dev.jorel.commandapi.arguments.GreedyStringArgument;
 import net.md_5.bungee.api.chat.TranslatableComponent;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.Damageable;
 
 import java.util.ArrayList;
