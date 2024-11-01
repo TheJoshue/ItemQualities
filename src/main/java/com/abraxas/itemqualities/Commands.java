@@ -156,9 +156,6 @@ public class Commands implements CommandExecutor/*, TabCompleter*/ {
 
     private void sendHelp(CommandSender sender) {
         sendMessageWithoutPrefix(sender, ItemQualities.getInstance().getTranslation("message.plugin.help.info"));
-        usableCommands.forEach(sc -> {
-            sendMessageWithoutPrefix(sender, ItemQualities.getInstance().getTranslation("message.plugin.help.command.%s".formatted(sc.getName())));
-        });
     }
 
     /*@Override
