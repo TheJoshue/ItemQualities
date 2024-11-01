@@ -6,6 +6,7 @@ prefix: ItemQualities
 load: STARTUP
 authors: [ Steel_Abraxas ]
 description: A simple plugin that adds Qualities to Items. Customizable.
+
 permissions:
   itemqualities.admin.reload:
     default: op
