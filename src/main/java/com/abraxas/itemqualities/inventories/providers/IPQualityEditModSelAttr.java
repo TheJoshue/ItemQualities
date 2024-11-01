@@ -48,7 +48,7 @@ public class IPQualityEditModSelAttr implements InventoryProvider {
         List<Attribute> attributeList = new ArrayList<>() {{
             addAll(List.of(Attribute.values()));
         }};
-        attributeList.removeAll(List.of(ZOMBIE_SPAWN_REINFORCEMENTS, HORSE_JUMP_STRENGTH, GENERIC_FLYING_SPEED, GENERIC_FOLLOW_RANGE));
+        attributeList.removeAll(List.of(ZOMBIE_SPAWN_REINFORCEMENTS, JUMP_STRENGTH, GENERIC_FLYING_SPEED, GENERIC_FOLLOW_RANGE));
         attributeList.removeAll(quality.modifiers.keySet());
 
         int col = 0;

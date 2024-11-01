@@ -356,7 +356,7 @@ public class QualitiesManager {
                     }
                 }
 
-                var sharpnessLevel = itemStack.getEnchantmentLevel(Enchantment.DAMAGE_ALL);
+                var sharpnessLevel = itemStack.getEnchantmentLevel(Enchantment.SHARPNESS);
                 var newAmount = initialValue + attributeModifier.getAmount(slot) + ((sharpnessLevel == 1) ? 1 :
                         (sharpnessLevel == 2) ? 1.5d :
                                 (sharpnessLevel == 3) ? 2 :

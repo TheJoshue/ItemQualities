@@ -28,7 +28,7 @@ import static org.bukkit.DyeColor.RED;
 import static org.bukkit.Material.*;
 import static org.bukkit.block.banner.PatternType.*;
 import static org.bukkit.inventory.ItemFlag.HIDE_ATTRIBUTES;
-import static org.bukkit.inventory.ItemFlag.HIDE_POTION_EFFECTS;
+import static org.bukkit.inventory.ItemFlag.HIDE_ADDITIONAL_TOOLTIP;
 import static org.bukkit.persistence.PersistentDataType.STRING;
 
 public class IPQualityEdit implements InventoryProvider {
@@ -147,7 +147,7 @@ public class IPQualityEdit implements InventoryProvider {
             player.closeInventory();
         }));
 
-        var editMaxDurabilityMod = new ItemStack(SCUTE);
+        var editMaxDurabilityMod = new ItemStack(TURTLE_SCUTE);
         var editMaxDurabilityModMeta = editMaxDurabilityMod.getItemMeta();
         editMaxDurabilityModMeta.setDisplayName(colorize("&aChange Max Durability Mod"));
         editMaxDurabilityModMeta.setLore(new ArrayList<>() {{
@@ -244,7 +244,7 @@ public class IPQualityEdit implements InventoryProvider {
             add(colorize("&4Warning: &cYou can NOT undo this."));
             add(colorize("&conly click this if you are SURE."));
         }});
-        deleteBtnMeta.addItemFlags(HIDE_POTION_EFFECTS); // Wtf mojang
+        deleteBtnMeta.addItemFlags(HIDE_ADDITIONAL_TOOLTIP); // Wtf mojang
         deleteBtn.setItemMeta(deleteBtnMeta);
         contents.set(2, 8, ClickableItem.of(deleteBtn, e -> {
             e.setCancelled(true);
