@@ -37,7 +37,7 @@ public class Commands implements CommandExecutor/*, TabCompleter*/ {
     public Commands(ItemQualities plugin) {
         this.main = plugin;
         main.getCommand("qualities").setExecutor(this);
-        main.getCommand("qualities").setTabCompleter(this);
+        //main.getCommand("qualities").setTabCompleter(this);
     }
 
     @Override
