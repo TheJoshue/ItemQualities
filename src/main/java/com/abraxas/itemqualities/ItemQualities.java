@@ -6,14 +6,15 @@ import com.abraxas.itemqualities.listeners.ServerListeners;
 import com.abraxas.itemqualities.utils.UpdateChecker;
 import com.abraxas.itemqualities.utils.Utils;
 import com.google.gson.JsonParser;
-import dev.jorel.commandapi.CommandAPI;
-import dev.jorel.commandapi.CommandAPIConfig;
+//import dev.jorel.commandapi.CommandAPI;
+//import dev.jorel.commandapi.CommandAPIConfig;
 import fr.minuskube.inv.InventoryManager;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectInputFilter.Config;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -37,14 +38,15 @@ public final class ItemQualities extends JavaPlugin {
 
     @Override
     public void onLoad() {
-        CommandAPI.onLoad(new CommandAPIConfig().silentLogs(true));
+        //CommandAPI.onLoad(new CommandAPIConfig().silentLogs(true));
     }
 
     @Override
     public void onEnable() {
         long start = System.currentTimeMillis();
         instance = this;
-        CommandAPI.onEnable(instance);
+        getCommand("qualities").setExecutor(new Commands(this));
+        //CommandAPI.onEnable(instance);
 
         loadConfig();
         startMetrics();

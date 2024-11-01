@@ -1,8 +1,8 @@
 package com.abraxas.itemqualities;
 
-import dev.jorel.commandapi.CommandAPICommand;
-import dev.jorel.commandapi.arguments.ArgumentSuggestions;
-import dev.jorel.commandapi.arguments.GreedyStringArgument;
+//import dev.jorel.commandapi.CommandAPICommand;
+//import dev.jorel.commandapi.arguments.ArgumentSuggestions;
+//import dev.jorel.commandapi.arguments.GreedyStringArgument;
 import net.md_5.bungee.api.chat.TranslatableComponent;
 import org.bukkit.inventory.meta.Damageable;
 
@@ -22,7 +22,30 @@ import static org.bukkit.Material.AIR;
 import static org.bukkit.persistence.PersistentDataType.INTEGER;
 
 public class Commands {
-    static ItemQualities main = ItemQualities.getInstance();
+
+    private final ItemQualities main = ItemQualities.getInstance();
+
+    public Commands(ItemQualities plugin) {
+        this.main = plugin;
+        main.getCommand("qualities").setExecutor(this);
+        main.getCommand("qualities").setTabCompleter(this);
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (args.length == 0) {
+            // Display help or top-level command response
+            sendHelp(sender);
+            return true;
+        }
+        return true;
+    }
+
+    private void sendHelp(CommandSender sender) {
+        sender.sendMessage("Available commands: reload, resetconfig, repairitem, setitemquality, removeitemquality, managequalities.");
+    }
+
+    /*static ItemQualities main = ItemQualities.getInstance();
 
     public static void register() {
         var subCommands = new ArrayList<CommandAPICommand>() {{
@@ -142,5 +165,5 @@ public class Commands {
         subCommands.forEach(mainCommand::withSubcommand);
 
         mainCommand.register();
-    }
+    }*/
 }
