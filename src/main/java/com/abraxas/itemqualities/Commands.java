@@ -32,10 +32,10 @@ import static org.bukkit.persistence.PersistentDataType.INTEGER;
 
 public class Commands implements CommandExecutor/*, TabCompleter*/ {
 
-    private final ItemQualities plugin;
+    private ItemQualities instance;
 
     public Commands(ItemQualities plugin) {
-        this.plugin = plugin;
+        this.instance = plugin;
         //plugin.getCommand("qualities").setExecutor(this);
         //plugin.getCommand("qualities").setTabCompleter(this);
     }
