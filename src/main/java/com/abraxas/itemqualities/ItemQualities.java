@@ -70,9 +70,9 @@ public final class ItemQualities extends JavaPlugin {
         log(getLangBundle().getString("message.plugin.disabled"));
     }
 
-    void startMetrics() {
+    /*void startMetrics() {
         Metrics metrics = new Metrics(this, 15451);
-    }
+    }*/
 
     void loadConfig() {
         try {
