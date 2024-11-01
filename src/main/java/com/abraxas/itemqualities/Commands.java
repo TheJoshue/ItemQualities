@@ -107,21 +107,13 @@ public class Commands implements CommandExecutor/*, TabCompleter*/ {
             sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.must_hold_item"));
             return;
         }
-        var qualArgString = (String) args[0];
-        var quality = getRandomQuality(getQuality(item));
-        var qualArg = qualArgString.split(":");
-        if (qualArgString != "random" && qualArg.length > 1)
-            quality = getQualityById(qualArg[1]);
+        var quality = qualityArg.equalsIgnoreCase("random")
+                ? QualitiesManager.getRandomQuality(QualitiesManager.getQuality(item))
+                : QualitiesManager.getQualityById(qualityArg);
 
-        var meta = item.getItemMeta();
-
-        if (!itemCanHaveQuality(item) && !meta.getPersistentDataContainer().has(ITEM_QUALITY_REMOVED, INTEGER)) {
+        if (!itemCanHaveQuality(item)) {
             sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.item_cant_have_quality"));
             return;
-        }
-        if (meta.getPersistentDataContainer().has(ITEM_QUALITY_REMOVED, INTEGER)) {
-            meta.getPersistentDataContainer().remove(ITEM_QUALITY_REMOVED);
-            item.setItemMeta(meta);
         }
         refreshItem(item, quality);
         damageItem(player, item, 0);
