@@ -23,5 +23,5 @@ jobs:
         with:
           name: Plugin JAR
           #path: target/*.jar
-          path: server/1.19/plugins/${project.name}-${project.version}.jar
+          path: server/1.19/plugins/*.jar
           if-no-files-found: error
