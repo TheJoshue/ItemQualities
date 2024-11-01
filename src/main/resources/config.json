@@ -6,8 +6,10 @@
   "displayQualityInLore": false,
   "displayDurabilityLineIfMaxDurabilityHasOffset": true,
   "applyQualityOnCraft": true,
+  "rerollQualityOnSmith": false,
   "reforgeStationEnabled": true,
   "damageAnvilOnReforge": true,
+  "reforgeTierDependsOnAnvilDamage": true,
   "locale": "en",
   "reforgeEXPLevelCosts": {
     "WOODEN_SWORD": 1,
