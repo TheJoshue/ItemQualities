@@ -42,13 +42,13 @@
                             <outputFile>server/1.21.1/plugins/${project.name}-${project.version}.jar</outputFile>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <minimizeJar>true</minimizeJar>
-                            <!--artifactSet>
+                            <artifactSet>
                                 <includes>
-                                    <include>dev.jorel:commandapi-shade</include>
-                                    <include>org.bstats</include>
+                                    <!--include>dev.jorel:commandapi-shade</include-->
+                                    <!--include>org.bstats</include-->
                                     <include>fr.minuskube.inv</include>
                                 </includes>
-                            </artifactSet-->
+                            </artifactSet>
                             <relocations>
                                 <!--relocation>
                                     <pattern>dev.jorel.commandapi-shade</pattern>
