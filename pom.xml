@@ -39,7 +39,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <outputFile>server/1.19/plugins/${project.name}-${project.version}.jar</outputFile>
+                            <outputFile>server/1.21.1/plugins/${project.name}-${project.version}.jar</outputFile>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <minimizeJar>true</minimizeJar>
                             <!--artifactSet>
