@@ -11,7 +11,7 @@ import static com.abraxas.itemqualities.utils.Utils.colorize;
 import static org.bukkit.DyeColor.*;
 import static org.bukkit.Material.*;
 import static org.bukkit.block.banner.PatternType.*;
-import static org.bukkit.inventory.ItemFlag.HIDE_POTION_EFFECTS;
+import static org.bukkit.inventory.ItemFlag.HIDE_ADDITIONAL_TOOLTIP;
 
 public class InvUtils {
     public static final Consumer<InventoryClickEvent> PREVENT_PICKUP = inventoryClickEvent ->
@@ -34,7 +34,7 @@ public class InvUtils {
         closeBtnMeta.addPattern(new Pattern(RED, STRIPE_DOWNLEFT));
         closeBtnMeta.addPattern(new Pattern(LIGHT_GRAY, CURLY_BORDER));
         closeBtnMeta.setDisplayName(colorize("&cClose"));
-        closeBtnMeta.addItemFlags(HIDE_POTION_EFFECTS); // Wtf mojang
+        closeBtnMeta.addItemFlags(HIDE_ADDITIONAL_TOOLTIP); // Wtf mojang
         closeBtn.setItemMeta(closeBtnMeta);
 
         arrowRightBtn = new ItemStack(LIGHT_GRAY_BANNER);
@@ -45,7 +45,7 @@ public class InvUtils {
         arrowRightBtnMeta.addPattern(new Pattern(LIGHT_GRAY, STRIPE_BOTTOM));
         arrowRightBtnMeta.addPattern(new Pattern(LIGHT_GRAY, CURLY_BORDER));
         arrowRightBtnMeta.setDisplayName(colorize("&7Next"));
-        arrowRightBtnMeta.addItemFlags(HIDE_POTION_EFFECTS); // Wtf mojang
+        arrowRightBtnMeta.addItemFlags(HIDE_ADDITIONAL_TOOLTIP); // Wtf mojang
         arrowRightBtn.setItemMeta(arrowRightBtnMeta);
 
         arrowLeftBtn = new ItemStack(LIGHT_GRAY_BANNER);
@@ -56,7 +56,7 @@ public class InvUtils {
         arrowLeftBtnMeta.addPattern(new Pattern(LIGHT_GRAY, STRIPE_BOTTOM));
         arrowLeftBtnMeta.addPattern(new Pattern(LIGHT_GRAY, CURLY_BORDER));
         arrowLeftBtnMeta.setDisplayName(colorize("&7Back"));
-        arrowLeftBtnMeta.addItemFlags(HIDE_POTION_EFFECTS); // Wtf mojang
+        arrowLeftBtnMeta.addItemFlags(HIDE_ADDITIONAL_TOOLTIP); // Wtf mojang
         arrowLeftBtn.setItemMeta(arrowLeftBtnMeta);
 
         blankItem = new ItemStack(BLACK_STAINED_GLASS_PANE);
