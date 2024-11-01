@@ -390,15 +390,17 @@ public class QualitiesManager {
         maxDur += itemQuality.itemMaxDurabilityMod;
         itemMeta.getPersistentDataContainer().set(MAX_ITEM_DURABILITY, INTEGER, maxDur);
 
-        if (maxDur != itemStack.getType().getMaxDurability()) {
-            newLore.add("");
-            var itemsCurDam = getItemDamage(itemStack);
-            var itemsRemainingDur = maxDur - itemsCurDam;
-            newLore.add(colorize("&7&oDurability: %s/%s".formatted(
-                    (itemsRemainingDur <= maxDur && itemsRemainingDur > maxDur / 2) ? "&a&o%s".formatted(itemsRemainingDur) :
-                            (itemsRemainingDur <= maxDur / 2 && itemsRemainingDur > maxDur / 3) ? "&2&o%s".formatted(itemsRemainingDur) :
-                                    (itemsRemainingDur <= maxDur / 3) ? "&c&o%s".formatted(itemsRemainingDur) : "&o%s".formatted(itemsRemainingDur), "&o%s".formatted(maxDur)
-            )));
+        if (getConfig().displayDurabilityLineIfMaxDurabilityHasOffset) {
+            if (maxDur != itemStack.getType().getMaxDurability()) {
+                newLore.add("");
+                var itemsCurDam = getItemDamage(itemStack);
+                var itemsRemainingDur = maxDur - itemsCurDam;
+                newLore.add(colorize("&7&oDurability: %s/%s".formatted(
+                        (itemsRemainingDur <= maxDur && itemsRemainingDur > maxDur / 2) ? "&a&o%s".formatted(itemsRemainingDur) :
+                                (itemsRemainingDur <= maxDur / 2 && itemsRemainingDur > maxDur / 3) ? "&2&o%s".formatted(itemsRemainingDur) :
+                                        (itemsRemainingDur <= maxDur / 3) ? "&c&o%s".formatted(itemsRemainingDur) : "&o%s".formatted(itemsRemainingDur), "&o%s".formatted(maxDur)
+                )));
+            }
         }
 
         itemMeta.setLore(newLore);

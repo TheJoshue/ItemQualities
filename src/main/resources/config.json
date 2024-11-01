@@ -4,6 +4,7 @@
   "itemQualityDisplayFormat": "{QUALITY} &r{ITEM}",
   "exampleItemQualitiesEnabled": true,
   "displayQualityInLore": false,
+  "displayDurabilityLineIfMaxDurabilityHasOffset": true,
   "applyQualityOnCraft": true,
   "reforgeStationEnabled": true,
   "damageAnvilOnReforge": true,
