@@ -4,8 +4,6 @@
   "itemQualityDisplayFormat": "{QUALITY} &r{ITEM}",
   "exampleItemQualitiesEnabled": true,
   "displayQualityInLore": false,
-  "newUpdateMessageOnReload": true,
-  "newUpdateMessageOnJoin": true,
   "applyQualityOnCraft": true,
   "reforgeStationEnabled": true,
   "damageAnvilOnReforge": true,
