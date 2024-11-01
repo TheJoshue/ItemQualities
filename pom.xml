@@ -58,10 +58,10 @@
                                     <pattern>fr.minuskube.inv</pattern>
                                     <shadedPattern>com.abraxas.itemqualities.api.inv</shadedPattern>
                                 </relocation>
-                                <relocation>
+                                <!--relocation>
                                     <pattern>org.bstats</pattern>
                                     <shadedPattern>com.abraxas.itemqualities.api.bstats</shadedPattern>
-                                </relocation>
+                                </relocation-->
                             </relocations>
                         </configuration>
                     </execution>
@@ -111,12 +111,12 @@
             <artifactId>smart-invs</artifactId>
             <version>1.2.7</version>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
             <version>3.0.0</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
