@@ -514,10 +514,6 @@ public class QualitiesManager {
             && quality.itemWhitelistMode
             && !quality.itemList.contains(itemStack.getType()));
 
-        Utils.log("itemQualities.isEmpty() - " + itemQualities.isEmpty());
-        Utils.log("itemQualities - " + itemQualities);
-        Utils.log("return - " + (itemQualities.isEmpty() ? null : itemQualities.get(Utils.getRandom().nextInt(itemQualities.size()))));
-
         for (ItemQuality quality : itemQualities) {
             if (chanceOf(quality.addToItemChance)) return quality;
         }
