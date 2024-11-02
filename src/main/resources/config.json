@@ -11,6 +11,10 @@
   "damageAnvilOnReforge": true,
   "reforgeTierDependsOnAnvilDamage": true,
   "locale": "en",
+  "itemBlacklist": [
+    "CARROT_ON_A_STICK",
+    "WARPED_FUNGUS_ON_A_STICK"
+  ],
   "reforgeEXPLevelCosts": {
     "WOODEN_SWORD": 1,
     "WOODEN_AXE": 1,
