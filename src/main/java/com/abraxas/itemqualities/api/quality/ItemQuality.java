@@ -2,6 +2,7 @@ package com.abraxas.itemqualities.api.quality;
 
 import com.abraxas.itemqualities.api.QualityAttributeModifier;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 
 import java.util.ArrayList;
