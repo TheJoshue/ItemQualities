@@ -518,6 +518,8 @@ public class QualitiesManager {
             if (chanceOf(quality.addToItemChance)) return quality;
         }
 
+        Utils.log("itemQualities.isEmpty() - " + itemQualities.isEmpty());
+        Utils.log("return - " + itemQualities.isEmpty() ? null : itemQualities.get(Utils.getRandom().nextInt(itemQualities.size())));
         return itemQualities.isEmpty() ? null : itemQualities.get(Utils.getRandom().nextInt(itemQualities.size()));
     }
 
