@@ -70,7 +70,7 @@ public class ItemListeners implements Listener {
                             !itemMeta.getPersistentDataContainer().has(ITEM_CRAFTED, INTEGER);
                     if (itemHasQuality(item) && canAdd) refreshItem(item);
                     if (itemCanHaveQuality(item) && !itemHasQuality(item) && canAdd)
-                        addQualityToItem(item, getRandomQuality());
+                        addQualityToItem(item, getRandomQuality(item));
                 }
             }
         }
@@ -93,7 +93,7 @@ public class ItemListeners implements Listener {
                     var canAdd = getConfig().applyQualityOnCraft ||
                             !itemMeta.getPersistentDataContainer().has(ITEM_CRAFTED, INTEGER);
                     if (itemCanHaveQuality(item) && !itemHasQuality(item) && canAdd)
-                        addQualityToItem(item, getRandomQuality());
+                        addQualityToItem(item, getRandomQuality(item));
                 }
             }
         }
@@ -108,7 +108,7 @@ public class ItemListeners implements Listener {
                 itemMeta != null &&
                 itemMeta.getPersistentDataContainer().has(ITEM_CRAFTED, INTEGER)) return;
         if (itemCanHaveQuality(item) && !itemHasQuality(item)) {
-            addQualityToItem(item, getRandomQuality());
+            addQualityToItem(item, getRandomQuality(item));
             event.getItem().setItemStack(item);
         }
     }
@@ -127,7 +127,7 @@ public class ItemListeners implements Listener {
             event.setCurrentItem(item);
         }
         if (itemCanHaveQuality(item) && !itemHasQuality(item)) {
-            addQualityToItem(item, getRandomQuality());
+            addQualityToItem(item, getRandomQuality(item));
             event.setCurrentItem(item);
         }
     }

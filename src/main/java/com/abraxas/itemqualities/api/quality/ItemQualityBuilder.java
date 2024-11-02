@@ -4,6 +4,7 @@ import com.abraxas.itemqualities.api.QualityAttributeModifier;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
 
+import java.util.List;
 import java.util.Map;
 
 import static com.abraxas.itemqualities.api.Registries.qualitiesRegistry;
@@ -38,6 +39,16 @@ public class ItemQualityBuilder {
     public ItemQualityBuilder withAdditionalDurabilityLoss(int loss, int chance) {
         itemQuality.extraDurabilityLoss = loss;
         itemQuality.extraDurabilityLossChance = chance;
+        return this;
+    }
+
+    public ItemQualityBuilder withSpecificItemWhitelistMode(Boolean mode) {
+        itemQuality.itemWhitelistMode = mode;
+        return this;
+    }
+
+    public ItemQualityBuilder withSpecificItemList(List<Material> items) {
+        itemQuality.itemList = items;
         return this;
     }
 

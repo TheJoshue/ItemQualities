@@ -47,6 +47,8 @@ public class QualitiesManager {
                 .withNoDropChance(60)
                 .withAdditionalDurabilityLoss(2, 90)
                 .withMaxDurabilityMod(-10)
+                .withSpecificItemWhitelistMode(true)
+                .withSpecificItemList(List.of(Material.WOODEN_SWORD, Material.WOODEN_PICKAXE, Material.WOODEN_SWORD, Material.WOODEN_AXE, Material.WOODEN_PICKAXE, Material.WOODEN_SHOVEL, Material.WOODEN_HOE))
                 .withAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new QualityAttributeModifier(-2,
                         HAND))
                 .withAttributeModifier(Attribute.GENERIC_ARMOR, new QualityAttributeModifier(-3))
@@ -58,6 +60,8 @@ public class QualitiesManager {
                 .withNoDropChance(55)
                 .withAdditionalDurabilityLoss(2, 85)
                 .withMaxDurabilityMod(-7)
+                .withSpecificItemWhitelistMode(true)
+                .withSpecificItemList(List.of(Material.WOODEN_SWORD, Material.WOODEN_PICKAXE, Material.WOODEN_SWORD, Material.WOODEN_AXE, Material.WOODEN_PICKAXE, Material.WOODEN_SHOVEL, Material.WOODEN_HOE))
                 .withAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new QualityAttributeModifier(-1.8,
                         HAND))
                 .withAttributeModifier(Attribute.GENERIC_ARMOR, new QualityAttributeModifier(-2.6))
@@ -69,6 +73,8 @@ public class QualitiesManager {
                 .withNoDropChance(49)
                 .withAdditionalDurabilityLoss(2, 75)
                 .withMaxDurabilityMod(-5)
+                .withSpecificItemWhitelistMode(true)
+                .withSpecificItemList(List.of(Material.WOODEN_SWORD, Material.WOODEN_PICKAXE, Material.WOODEN_SWORD, Material.WOODEN_AXE, Material.WOODEN_PICKAXE, Material.WOODEN_SHOVEL, Material.WOODEN_HOE))
                 .withAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new QualityAttributeModifier(-1.4,
                         HAND))
                 .withAttributeModifier(Attribute.GENERIC_ARMOR, new QualityAttributeModifier(-2.4))
@@ -80,6 +86,8 @@ public class QualitiesManager {
                 .withNoDropChance(55)
                 .withAdditionalDurabilityLoss(2, 85)
                 .withMaxDurabilityMod(-7)
+                .withSpecificItemWhitelistMode(true)
+                .withSpecificItemList(List.of(Material.WOODEN_SWORD, Material.WOODEN_PICKAXE, Material.WOODEN_SWORD, Material.WOODEN_AXE, Material.WOODEN_PICKAXE, Material.WOODEN_SHOVEL, Material.WOODEN_HOE))
                 .withAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new QualityAttributeModifier(-1.1,
                         HAND))
                 .withAttributeModifier(Attribute.GENERIC_ARMOR, new QualityAttributeModifier(-2.3))
@@ -91,6 +99,8 @@ public class QualitiesManager {
                 .withNoDropChance(45)
                 .withAdditionalDurabilityLoss(2, 75)
                 .withMaxDurabilityMod(-4)
+                .withSpecificItemWhitelistMode(true)
+                .withSpecificItemList(List.of(Material.WOODEN_SWORD, Material.WOODEN_PICKAXE, Material.WOODEN_SWORD, Material.WOODEN_AXE, Material.WOODEN_PICKAXE, Material.WOODEN_SHOVEL, Material.WOODEN_HOE))
                 .withAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new QualityAttributeModifier(-1,
                         HAND))
                 .withAttributeModifier(Attribute.GENERIC_ARMOR, new QualityAttributeModifier(-2))
@@ -102,6 +112,8 @@ public class QualitiesManager {
                 .withNoDropChance(40)
                 .withAdditionalDurabilityLoss(1, 65)
                 .withMaxDurabilityMod(-3)
+                .withSpecificItemWhitelistMode(true)
+                .withSpecificItemList(List.of(Material.WOODEN_SWORD, Material.WOODEN_PICKAXE, Material.WOODEN_SWORD, Material.WOODEN_AXE, Material.WOODEN_PICKAXE, Material.WOODEN_SHOVEL, Material.WOODEN_HOE))
                 .withAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new QualityAttributeModifier(-0.5,
                         HAND))
                 .withAttributeModifier(Attribute.GENERIC_ARMOR, new QualityAttributeModifier(-1.7))
@@ -113,6 +125,8 @@ public class QualitiesManager {
                 .withNoDropChance(10)
                 .withAdditionalDurabilityLoss(1, 15)
                 .withMaxDurabilityMod(-3)
+                .withSpecificItemWhitelistMode(true)
+                .withSpecificItemList(List.of(Material.WOODEN_SWORD, Material.WOODEN_PICKAXE, Material.WOODEN_SWORD, Material.WOODEN_AXE, Material.WOODEN_PICKAXE, Material.WOODEN_SHOVEL, Material.WOODEN_HOE))
                 .withAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new QualityAttributeModifier(-1,
                         HAND))
                 .withAttributeModifier(Attribute.GENERIC_ARMOR, new QualityAttributeModifier(-0.7))
@@ -126,6 +140,8 @@ public class QualitiesManager {
                 .withNoDurabilityLossChance(60)
                 .withMaxDurabilityMod(70)
                 .withDoubleDropsChance(7)
+                .withSpecificItemWhitelistMode(true)
+                .withSpecificItemList(List.of(Material.WOODEN_SWORD, Material.WOODEN_PICKAXE, Material.WOODEN_SWORD, Material.WOODEN_AXE, Material.WOODEN_PICKAXE, Material.WOODEN_SHOVEL, Material.WOODEN_HOE))
                 .withAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new QualityAttributeModifier(2.3,
                         HAND))
                 .withAttributeModifier(Attribute.GENERIC_ARMOR, new QualityAttributeModifier(0.8))
@@ -137,6 +153,8 @@ public class QualitiesManager {
                 .withNoDurabilityLossChance(70)
                 .withMaxDurabilityMod(100)
                 .withDoubleDropsChance(10)
+                .withSpecificItemWhitelistMode(true)
+                .withSpecificItemList(List.of(Material.WOODEN_SWORD, Material.WOODEN_PICKAXE, Material.WOODEN_SWORD, Material.WOODEN_AXE, Material.WOODEN_PICKAXE, Material.WOODEN_SHOVEL, Material.WOODEN_HOE))
                 .withAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new QualityAttributeModifier(3,
                         HAND))
                 .withAttributeModifier(Attribute.GENERIC_ARMOR, new QualityAttributeModifier(1))
@@ -274,7 +292,7 @@ public class QualitiesManager {
     public static ItemStack refreshItem(ItemStack itemStack, ItemQuality updatedQuality) {
         var itemsQuality = (updatedQuality != null) ? updatedQuality : getQuality(itemStack);
         removeQualityFromItem(itemStack);
-        return addQualityToItem(itemStack, (itemsQuality == null) ? getRandomQuality() : itemsQuality);
+        return addQualityToItem(itemStack, (itemsQuality == null) ? getRandomQuality(itemStack) : itemsQuality);
     }
 
     public static ItemStack addQualityToItem(ItemStack itemStack, ItemQuality itemQuality) {
@@ -478,11 +496,11 @@ public class QualitiesManager {
                 !itemStack.getItemMeta().getPersistentDataContainer().has(ITEM_QUALITY_REMOVED, INTEGER);
     }
 
-    public static ItemQuality getRandomQuality() {
-        return getRandomQuality(null);
+    public static ItemQuality getRandomQuality(ItemStack itemStack) {
+        return getRandomQuality(itemStack, null);
     }
 
-    public static ItemQuality getRandomQuality(ItemQuality exclude) {
+    public static ItemQuality getRandomQuality(ItemStack itemStack, ItemQuality exclude) {
         List<ItemQuality> itemQualities = new ArrayList<>() {{
             addAll(qualitiesRegistry.getRegistry().values());
         }};
@@ -490,11 +508,16 @@ public class QualitiesManager {
         Collections.reverse(itemQualities);
         if (exclude != null) itemQualities.remove(exclude);
 
+        // Filter based on whitelist condition
+        itemQualities.removeIf(quality -> quality.itemWhitelistMode != null 
+            && quality.itemWhitelistMode
+            && !quality.itemList.contains(itemStack.getType()));
+
         for (ItemQuality quality : itemQualities) {
             if (chanceOf(quality.addToItemChance)) return quality;
         }
 
-        return itemQualities.get(Utils.getRandom().nextInt(itemQualities.size()));
+        return itemQualities.isEmpty() ? null : itemQualities.get(Utils.getRandom().nextInt(itemQualities.size()));
     }
 
     public static ItemQuality getQualityById(String id) {

@@ -4,7 +4,9 @@ import com.abraxas.itemqualities.api.QualityAttributeModifier;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.abraxas.itemqualities.api.APIUtils.getGson;
@@ -26,6 +28,16 @@ public class ItemQuality {
     public int doubleDropsChance;
 
     public int tier;
+
+    public Boolean itemWhitelistMode;
+
+    public List<Material> itemList = new ArrayList<>() {{
+        add(Material.WOODEN_SWORD);
+        add(Material.WOODEN_AXE);
+        add(Material.WOODEN_PICKAXE);
+        add(Material.WOODEN_SHOVEL);
+        add(Material.WOODEN_HOE);
+    }};
 
     public ItemQuality(NamespacedKey key, String display, int addToItemChance, int tier) {
         this.key = key;
@@ -53,6 +65,8 @@ public class ItemQuality {
                 "noDropChance: %s, ".formatted(noDropChance) +
                 "doubleDropChance: %s, ".formatted(doubleDropsChance) +
                 "tier: %s, ".formatted(tier) +
+                "itemWhitelistMode: %s, ".formatted(itemWhitelistMode) +
+                "itemList: %s, ".formatted(itemList) +
                 "modifiers:[%s]}".formatted(modifiers.toString());
     }
 }

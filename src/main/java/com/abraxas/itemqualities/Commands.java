@@ -55,19 +55,19 @@ public class Commands implements CommandExecutor/*, TabCompleter*/ {
             case "resetconfig" -> handleResetConfig(sender);
             case "repairitem" -> {
                 if (sender instanceof Player player) handleRepairItem(player);
-                else sender.sendMessage("This command can only be run by a player.");
+                else sendMessageWithPrefix(sender, main.getTranslation("message.commands.only_run_ingame"));
             }
             case "setitemquality" -> {
                 if (sender instanceof Player player && args.length > 1) handleSetItemQuality(player, args[1]);
-                else sender.sendMessage("Please specify the item quality.");
+                else sendMessageWithPrefix(sender, main.getTranslation("message.commands.enter_quality"));
             }
             case "removeitemquality" -> {
                 if (sender instanceof Player player) handleRemoveItemQuality(player);
-                else sender.sendMessage("This command can only be run by a player.");
+                else sendMessageWithPrefix(sender, main.getTranslation("message.commands.only_run_ingame"));
             }
             case "managequalities" -> {
                 if (sender instanceof Player player) handleManageQualities(player);
-                else sender.sendMessage("This command can only be run by a player.");
+                else sendMessageWithPrefix(sender, main.getTranslation("message.commands.only_run_ingame"));
             }
             default -> sendHelp(sender);
         }
@@ -108,8 +108,8 @@ public class Commands implements CommandExecutor/*, TabCompleter*/ {
             return;
         }
         var quality = qualityArg.equalsIgnoreCase("random")
-                ? QualitiesManager.getRandomQuality(QualitiesManager.getQuality(item))
-                : QualitiesManager.getQualityById(qualityArg);
+                ? getRandomQuality(item, getQuality(item))
+                : getQualityById(qualityArg);
 
         if (!itemCanHaveQuality(item)) {
             sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.item_cant_have_quality"));
@@ -126,7 +126,7 @@ public class Commands implements CommandExecutor/*, TabCompleter*/ {
             sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.must_hold_item"));
             return;
         }
-        if (!QualitiesManager.itemHasQuality(item)) {
+        if (!itemHasQuality(item)) {
             sendMessageWithPrefix(player, ItemQualities.getInstance().getTranslation("message.commands.item_has_no_quality"));
             return;
         }

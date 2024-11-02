@@ -68,7 +68,7 @@ public class BlockListeners implements Listener {
         slot1Meta.getPersistentDataContainer().set(ITEM_CUSTOM_NAME, STRING, renameText);
         slot1.setItemMeta(slot1Meta);
         removeQualityFromItem(slot1);
-        addQualityToItem(slot1, (itemsQuality != null) ? itemsQuality : getRandomQuality());
+        addQualityToItem(slot1, (itemsQuality != null) ? itemsQuality : getRandomQuality(slot1));
         event.setResult(slot1);
     }
 
@@ -105,7 +105,7 @@ public class BlockListeners implements Listener {
         item.setItemMeta(meta);
 
         if (getConfig().rerollQualityOnSmith)
-            event.setCurrentItem(addQualityToItem(item, getRandomQuality()));
+            event.setCurrentItem(addQualityToItem(item, getRandomQuality(item)));
     }
 
     @EventHandler
@@ -146,7 +146,7 @@ public class BlockListeners implements Listener {
             case HOTBAR_SWAP:
             case HOTBAR_MOVE_AND_READD:
             case SWAP_WITH_CURSOR:
-                event.setCurrentItem(addQualityToItem(item, getRandomQuality()));
+                event.setCurrentItem(addQualityToItem(item, getRandomQuality(item)));
                 break;
             default:
                 if (event.isShiftClick()) {
@@ -158,7 +158,7 @@ public class BlockListeners implements Listener {
 
                             for (int i = 0; i < preInv.length; i++) {
                                 if (preInv[i] != postInv[i]) {
-                                    addQualityToItem(postInv[i], getRandomQuality());
+                                    addQualityToItem(postInv[i], getRandomQuality(postInv[i]));
                                     var itemMeta = postInv[i].getItemMeta();
                                     itemMeta.removeItemFlags(HIDE_ATTRIBUTES);
                                     postInv[i].setItemMeta(itemMeta);
@@ -167,7 +167,7 @@ public class BlockListeners implements Listener {
                             }
                         }
                     }.runTaskLater(main, 5);
-                } else event.setCurrentItem(addQualityToItem(item, getRandomQuality()));
+                } else event.setCurrentItem(addQualityToItem(item, getRandomQuality(item)));
                 break;
         }
     }
@@ -247,6 +247,12 @@ public class BlockListeners implements Listener {
         }
         qualities.remove(getQuality(item));
         qualities.removeAll(registeredQualities.stream().filter(q -> q.addToItemChance <= 0).toList());
+
+        // Filter based on whitelist condition
+        qualities.removeIf(quality -> quality.itemWhitelistMode != null 
+            && quality.itemWhitelistMode
+            && !quality.itemList.contains(item.getType()));
+
         ItemQuality newQuality = null;
         for (ItemQuality qual : qualities) {
             int chanceBonus = (block.getType().equals(ANVIL)) ? 20 :
