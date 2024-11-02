@@ -519,7 +519,8 @@ public class QualitiesManager {
         }
 
         Utils.log("itemQualities.isEmpty() - " + itemQualities.isEmpty());
-        //Utils.log("return - " + (itemQualities.isEmpty() ? null : itemQualities.get(Utils.getRandom().nextInt(itemQualities.size()))));
+        Utils.log("itemQualities.isEmpty() - " + itemQualities);
+        Utils.log("return - " + (itemQualities.isEmpty() ? null : itemQualities.get(Utils.getRandom().nextInt(itemQualities.size()))));
         return itemQualities.isEmpty() ? null : itemQualities.get(Utils.getRandom().nextInt(itemQualities.size()));
     }
 
