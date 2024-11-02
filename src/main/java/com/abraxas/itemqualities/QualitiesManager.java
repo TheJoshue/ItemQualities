@@ -8,6 +8,7 @@ import com.abraxas.itemqualities.utils.Utils;
 import com.google.common.collect.Multimap;
 import net.md_5.bungee.api.chat.TranslatableComponent;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
