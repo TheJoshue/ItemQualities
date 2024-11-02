@@ -512,7 +512,7 @@ public class QualitiesManager {
         // Filter based on whitelist condition
         itemQualities.removeIf(quality -> quality.itemWhitelistMode != null 
             && quality.itemWhitelistMode
-            && !quality.itemList.contains(itemStack.getType()));
+            && !quality.itemList.contains(itemStack.getType()));''
 
         for (ItemQuality quality : itemQualities) {
             if (chanceOf(quality.addToItemChance)) return quality;
