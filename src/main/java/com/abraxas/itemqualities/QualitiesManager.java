@@ -311,7 +311,7 @@ public class QualitiesManager {
             itemMeta.setDisplayName(colorize(getConfig().itemQualityDisplayFormat.replace("{QUALITY}", itemQuality.display).replace("{ITEM}", itemName)));
         } else {
             newLore.add(colorize("&r%s %s".formatted(itemQuality.display, main.getTranslation("lore.stat.quality"))));
-            newLore.add("");
+            //newLore.add("");
         }
 
         if (itemQuality.extraDurabilityLoss > 0)
